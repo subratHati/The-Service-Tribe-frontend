@@ -311,7 +311,7 @@ export default function Profile() {
     try {
       const res = await axios.get("/auth/profile", {
         withCredentials: true,
-        skipToast: opts.skipToast,
+        skipToast: true,
       });
       // ensure we store a normalized user object into context
       const fetched = res.data?.user ?? res.data ?? null;

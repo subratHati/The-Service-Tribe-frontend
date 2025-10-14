@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="280" height="280" role="img" aria-labelledby="title desc">
+  <title id="title">No Service Bookings</title>
+  <desc id="desc">A clipboard with an empty document and magnifying glass representing no service bookings found.</desc>
+
+  <!-- subtle shadow -->
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- clipboard shape -->
+  <g transform="translate(20,15)" fill="none" stroke="currentColor" stroke-width="1.5" filter="url(#shadow)">
+    <rect x="0" y="10" width="100" height="110" rx="10" ry="10" fill="white" stroke-opacity="0.15"/>
+    <rect x="28" y="0" width="44" height="14" rx="4" ry="4" fill="currentColor" opacity="0.08"/>
+  </g>
+
+  <!-- empty document page -->
+  <g transform="translate(38,34)" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0" y="0" width="64" height="80" rx="6" ry="6" stroke-opacity="0.3"/>
+    <!-- lines on paper -->
+    <line x1="12" y1="20" x2="52" y2="20" stroke-opacity="0.4"/>
+    <line x1="12" y1="32" x2="52" y2="32" stroke-opacity="0.4"/>
+    <line x1="12" y1="44" x2="36" y2="44" stroke-opacity="0.4"/>
+  </g>
+
+  <!-- magnifying glass -->
+  <g transform="translate(86,80)" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="0" cy="0" r="8" fill="none" stroke-opacity="0.8"/>
+    <line x1="5" y1="5" x2="12" y2="12" stroke-opacity="0.8"/>
+  </g>
+
+  <!-- subtle checkmark circle (empty placeholder) -->
+  <circle cx="50" cy="100" r="8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-dasharray="3 3" opacity="0.5"/>
+
+
+</svg>

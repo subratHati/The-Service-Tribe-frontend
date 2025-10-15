@@ -101,10 +101,12 @@
 // src/pages/Cart.jsx
 import { useCart } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
+import { useToast } from "../components/ToastProvider";
 
 export default function Cart() {
   const navigate = useNavigate();
   const { cart, removeItem, clearCart } = useCart();
+  const {push} = useToast();
 
   // compute total
   const total = cart.reduce((sum, it) => {

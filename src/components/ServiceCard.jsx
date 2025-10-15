@@ -57,8 +57,10 @@
 // src/components/ServiceCard.jsx
 import { useCart } from "../context/CartContext";
 import { useUser } from "../context/UserContext";
+import { useToast } from "./ToastProvider";
 
 export default function ServiceCard({ service }) {
+  const {push} = useToast();
   if (!service) return null;
 
   const { addItem } = useCart();

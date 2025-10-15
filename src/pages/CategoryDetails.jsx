@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "../utils/axios";
 import CategoryForm from "../components/CategoryForm";
 import ServiceForm from "../components/ServiceForm";
+import { useToast } from "../components/ToastProvider";
 
 export default function CategoryDetails() {
   const { id } = useParams();
@@ -14,6 +15,7 @@ export default function CategoryDetails() {
   const [editingCategory, setEditingCategory] = useState(false);
   const [editingService, setEditingService] = useState(null);
   const [creatingService, setCreatingService] = useState(false);
+  const{push} = useToast();
 
   useEffect(() => { fetchData(); }, [id]);
 

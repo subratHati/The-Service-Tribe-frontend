@@ -1,6 +1,7 @@
 // src/components/CategoryForm.jsx
 import { useState } from "react";
 import axios from "../utils/axios";
+import { useToast } from "./ToastProvider";
 
 /**
  * props:
@@ -13,6 +14,7 @@ export default function CategoryForm({ initial = null, onCreated, onUpdated, onC
   const [name, setName] = useState(initial?.name || "");
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
+  const {push} = useToast();
 
   const isEdit = Boolean(initial && initial._id);
 

@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { updatePhoneNumber } from "../api/auth";
+import { useToast } from "./ToastProvider";
 
 
 export default function PhoneNumberDialog({ open, onClose, currentPhone, onSaved }) {
+  const {push} = useToast();
   const [phone, setPhone] = useState(currentPhone || "");
   const [saving, setSaving] = useState(false);
 

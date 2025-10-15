@@ -201,7 +201,7 @@
 //   console.log("User detail is :",user);
 
 //   if (!user) {
-   
+
 //     return (
 //       <div className="max-w-md mx-auto mt-20 bg-white p-6 rounded-xl shadow text-center">
 //         <h2 className="text-xl font-semibold mb-4">You're not signed in</h2>
@@ -299,6 +299,7 @@ import axios from "../utils/axios";
 import { logoutUser } from "../api/auth";
 import { useUser } from "../context/UserContext";
 import PhoneNumberDialog from "../components/PhoneNumberDialog";
+import Loading from "../components/Loading";
 
 export default function Profile() {
   const [user, setUser] = useUser();
@@ -309,7 +310,7 @@ export default function Profile() {
   // fetch fresh profile from backend
   const refreshProfile = useCallback(async (opts = { skipToast: true }) => {
     try {
-      const res = await axios.get("/auth/profile", {
+      const res = await axios.get("/auth/currentUser", {
         withCredentials: true,
         skipToast: true,
       });
@@ -327,7 +328,7 @@ export default function Profile() {
       setLoading(false);
       try {
         localStorage.removeItem("user");
-      } catch (e) {}
+      } catch (e) { }
       return null;
     }
   }, [setUser]);
@@ -374,12 +375,12 @@ export default function Profile() {
       localStorage.removeItem("pendingEmail");
       localStorage.setItem("auth-event", "logout");
       localStorage.setItem("auth-event-ts", String(Date.now()));
-    } catch (e) {}
+    } catch (e) { }
 
     navigate("/login", { replace: true });
     try {
       window.history.replaceState(null, "", "/login");
-    } catch (e) {}
+    } catch (e) { }
   };
 
   if (loading) return <div className="text-center mt-10">Loading...</div>;
@@ -442,9 +443,11 @@ export default function Profile() {
       {/* Actions */}
       <div className="mt-6 flex flex-col sm:flex-row gap-3">
         <button onClick={handleLogout} className="px-4 py-2 rounded bg-red-600 text-white w-full sm:w-auto">
-          Logout
+          {loading ? <Loading variant="button" size="sm" message="Logging out"/> : "Logout"}
         </button>
-
+        {/* <button className="px-4 py-2 rounded bg-[#101828] text-white">
+          {loading ? <Loading variant="button" size="sm" message="Saving" /> : "Save"}
+        </button> */}
         <Link to="/bookings" className="px-4 py-2 rounded border w-full sm:w-auto text-center">
           My Bookings
         </Link>

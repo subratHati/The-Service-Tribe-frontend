@@ -2,11 +2,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { requestPasswordReset } from "../api/auth";
+import { useToast } from "../components/ToastProvider";
 
 export default function ForgotEmail() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
+  const {push} = useToast();
 
   // simple email validation (client-side)
   const validateEmail = (e) => {

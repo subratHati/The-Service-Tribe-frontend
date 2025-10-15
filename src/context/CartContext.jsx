@@ -18,7 +18,7 @@ export const CartProvider = ({ children }) => {
         console.log("User is present...");
         const fetchCart = async () => {
             try {
-                const res = await axios.get("/cart/get");
+                const res = await axios.get("/cart/get", {skipToast: true});
                 console.log("Your cart is :", res.data.items);
                 setCart(res.data.items || []);
             } catch (error) {

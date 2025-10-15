@@ -297,6 +297,10 @@ export default function Header() {
                 <>
                   <Link to="/bookings" className="hover:underline">My Bookings</Link>
                   <Link to="/profile" className="hover:underline">Profile</Link>
+                  {user.role === "admin" && (
+                    <Link to="/admin" className="hover:underline">Admin</Link>
+                  )}
+
                 </>
               ) : (
                 <>

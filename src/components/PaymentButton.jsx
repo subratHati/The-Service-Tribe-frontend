@@ -1,9 +1,11 @@
 // src/components/PaymentButton.jsx
 import axios from "../utils/axios";
 import { useNavigate } from "react-router-dom";
+import { useToast } from "./ToastProvider";
 
 
 export default function PaymentButton({ bookingId = null, bookingPayload = null, amountDisplay, className }) {
+  const {push} = useToast();
   const navigate = useNavigate();
   const handlePay = async () => {
     try {

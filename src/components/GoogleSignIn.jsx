@@ -6,7 +6,7 @@ export default function GoogleSignIn({ className = "" }) {
   const production_url = import.meta.env.VITE_API_URL;
   const startOauth = () => {
     // open the backend route to start OAuth
-    window.location.href = `${production_url}/api/auth/google` || "http://localhost:5000/api/auth/google";
+    window.location.href = `${production_url}/auth/google` || "http://localhost:5000/api/auth/google";
     // If your API is on different origin in dev, use full URL: http://localhost:5000/api/auth/google
   };
 

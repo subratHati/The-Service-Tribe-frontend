@@ -30,7 +30,7 @@ export default function ForgotEmail() {
       navigate("/forgot-reset");
     } catch (error) {
       const msg = error.msg;
-      console.error("requestPasswordReset:", err);
+      console.error("requestPasswordReset:", error);
       push({ type: "error", message: msg });
     } finally {
       setLoading(false);

@@ -123,6 +123,8 @@ function Login() {
     password: "",
   });
 
+  console.log("Test");
+
   const [user, setUser] = useUser();
 
   const handleChange = (e) => {

@@ -71,9 +71,19 @@ export const resendOTP = async (email) => {
 
 export const logoutUser = async () => {
     try {
-        const res = await axios.get("/auth/logout");
+        const res = await axios.get("/auth/logout", {withCredentials: true});
         return res.data;
     } catch (error) {
         throw error.response?.data || error;
+    }
+}
+
+export const currentUser = async () => {
+    try {
+        const res = axios.get("/auth/currentUser", {withCredentials: true, skipToast: true});
+        return res.data;
+    } catch (error) {
+        throw error.response?.data || error;
+        
     }
 }

@@ -97,14 +97,17 @@
 
 // src/pages/VerifyEmail.jsx
 import { useState, useEffect } from "react";
+import { useUser } from "../context/UserContext";
 import { Link, useNavigate } from "react-router-dom";
-import { verifyEmail, resendOTP } from "../api/auth";
+import { verifyEmail, resendOTP, currentUser } from "../api/auth";
 import { useToast } from "../components/ToastProvider";
+
 
 export default function VerifyEmail() {
   const navigate = useNavigate();
   const { push } = useToast();
   const [email, setEmail] = useState("");
+  const [user, setUser] = useUser ? useUser() : [null, () => { }];
   const [otp, setOtp] = useState("");
   const [loading, setLoading] = useState(false);
   const [resendLoading, setResendLoading] = useState(false);
@@ -126,10 +129,42 @@ export default function VerifyEmail() {
 
     setLoading(true);
     try {
-      await verifyEmail(email, otp);
+      const res = await verifyEmail(email, otp);
+      const token = res?.token;
+      const userObj = res?.user;
+      if (token) {
+        try {
+          localStorage.setItem("token", token);
+        } catch (error) {
+          // ignore this.
+        }
+      }
+
+      if (userObj) {
+        try {
+          setUser(userObj);
+          localStorage.setItem("user", JSON.stringify(userObj));
+        } catch (e) { /* ignore */ }
+      } else {
+        try {
+          const me = await currentUser();
+          setUser(me.data);
+          localStorage.setItem("user", JSON.stringify(me.data));
+        } catch (e) {
+          // ignore if fetch fails, but inform user
+          console.warn("Failed to fetch currentUser after verify:", e);
+        }
+      }
+
+      // broadcast login event to other tabs
+      try {
+        localStorage.setItem("auth-event", "login");
+        setTimeout(() => localStorage.removeItem("auth-event"), 100);
+      } catch (e) { }
+
       localStorage.removeItem("pendingEmail");
       push({ type: "success", message: "Email verified successfully!" });
-      navigate("/login", { replace: true });
+      navigate("/", { replace: true });
     } catch (error) {
       const message = error?.response?.data?.msg || error?.msg || "Verification failed";
       push({ type: "error", message });

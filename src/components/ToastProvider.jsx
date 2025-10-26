@@ -357,7 +357,7 @@ function ToastContainer({ toasts, onRemove }) {
 }
 
 function Toast({ toast, onRemove, mobile = false }) {
-  const { id, type = "info", title, message, timeout = 5000 } = toast;
+  const { id, type = "info", title, message, timeout = 3000 } = toast;
 
   // theme design for each type
   const theme = {

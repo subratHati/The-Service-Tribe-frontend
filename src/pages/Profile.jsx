@@ -304,6 +304,7 @@ import Loading from "../components/Loading";
 export default function Profile() {
   const [user, setUser] = useUser();
   const [loading, setLoading] = useState(true);
+  const [logoutLoading, setLogoutLoading] = useState(false);
   const [openPhoneDialog, setOpenPhoneDialog] = useState(false);
   const navigate = useNavigate();
 
@@ -363,6 +364,7 @@ export default function Profile() {
   }, [user, refreshProfile]);
 
   const handleLogout = async () => {
+    setLogoutLoading(true);
     try {
       await logoutUser();
     } catch (err) {
@@ -381,6 +383,8 @@ export default function Profile() {
     try {
       window.history.replaceState(null, "", "/login");
     } catch (e) { }
+
+    setLogoutLoading(false);
   };
 
   if (loading) return <div className="text-center mt-10">Loading...</div>;
@@ -443,7 +447,7 @@ export default function Profile() {
       {/* Actions */}
       <div className="mt-6 flex flex-col sm:flex-row gap-3">
         <button onClick={handleLogout} className="px-4 py-2 rounded bg-red-600 text-white w-full sm:w-auto">
-          {loading ? <Loading variant="button" size="sm" message="Logging out"/> : "Logout"}
+          {logoutLoading ? <Loading variant="button" size="sm" message="Logging out"/> : "Logout"}
         </button>
         {/* <button className="px-4 py-2 rounded bg-[#101828] text-white">
           {loading ? <Loading variant="button" size="sm" message="Saving" /> : "Save"}

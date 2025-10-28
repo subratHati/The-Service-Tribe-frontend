@@ -1,47 +1,69 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <!-- Primary meta tags -->
-    <title>The Service Tribe — Home Services Near You</title>
-    <meta name="description" content="The Service Tribe — find trusted local household service professionals on demand. Cleaning, plumbing, electrical and more — book verified pros in your area." />
-    <meta name="keywords" content="home services, household services, local service professionals, plumber, electrician, cleaner, The Service Tribe, online service, online services" />
-    <meta name="author" content="The Service Tribe" />
 
-       <!-- Favicons (place files in /public) -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/servicetribe.ico" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/servicetribe.ico" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <meta name="msapplication-TileColor" content="#101828" />
-    <meta name="theme-color" content="#101828" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Primary meta tags -->
+  <title>The Service Tribe — Home Services Near You</title>
+  <meta name="description"
+    content="The Service Tribe — find trusted local household service professionals on demand. Cleaning, plumbing, electrical and more — book verified pros in your area." />
+  <meta name="keywords"
+    content="service tribe, home services, household services, local service professionals, plumber, electrician, cleaner, online service, online services, home services Bhubaneswar, electrician Bhubaneswar, plumber Bhubaneswar, cleaner Bhubaneswar, near me" />
+  <meta name="geo.region" content="IN-OD" />
+  <meta name="geo.placename" content="Bhubaneswar" />
+  <meta name="geo.position" content="20.2961;85.8245" />
+  <meta name="ICBM" content="20.2961, 85.8245" />
+  <meta name="author" content="The Service Tribe" />
 
-        <!-- Open Graph / Social -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="The Service Tribe — Home Services Near You" />
-    <meta property="og:description" content="Find trusted local household service professionals quickly — cleaning, plumbing, electrical and more. Book verified pros in your area." />
-    <meta property="og:image" content="https://www.servicetribe.in/favicon-512x512.png" />
-    <meta property="og:url" content="https://www.servicetribe.in" />
-    <meta property="og:site_name" content="The Service Tribe" />
+  <!-- Favicons (place files in /public) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/servicetribe.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/servicetribe.ico" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="msapplication-TileColor" content="#101828" />
+  <meta name="theme-color" content="#101828" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="The Service Tribe — Home Services Near You" />
+  <meta property="og:description"
+    content="Find trusted local household service professionals quickly — cleaning, plumbing, electrical and more. Book verified pros in your area." />
+  <meta property="og:image" content="https://www.servicetribe.in/favicon-512x512.png" />
+  <meta property="og:url" content="https://www.servicetribe.in" />
+  <meta property="og:site_name" content="The Service Tribe" />
 
 
-       <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="The Service Tribe" />
-    <meta name="twitter:description" content="Find trusted local household service professionals quickly." />
-    <meta name="twitter:image" content="https://www.servicetribe.in/favicon-512x512.png" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Service Tribe" />
+  <meta name="twitter:description" content="Find trusted local household service professionals quickly." />
+  <meta name="twitter:image" content="https://www.servicetribe.in/favicon-512x512.png" />
 
 
-        <!-- Structured data: Organization (helps Google associate logo & name) -->
-    <script type="application/ld+json">
+  <!-- Structured data: Organization (helps Google associate logo & name) -->
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "The Service Tribe",
+       "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Bhubaneswar, Odisha, India",
+    "addressLocality": "Bhubaneswar",
+    "addressRegion": "Odisha",
+    "postalCode": "751001",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 20.2961,
+    "longitude": 85.8245
+  },
       "url": "https://www.servicetribe.in",
       "logo": "https://www.servicetribe.in/favicon-512x512.png",
+       "description": "Trusted home service platform in Bhubaneswar. Book expert electricians, plumbers, and cleaners near you with instant confirmation.",
       "sameAs": [
         "https://www.facebook.com/yourpage",
         "https://www.linkedin.com/company/yourcompany"
@@ -49,10 +71,12 @@
     }
     </script>
 
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-  </body>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</body>
+
 </html>
